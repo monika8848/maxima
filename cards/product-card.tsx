@@ -43,7 +43,7 @@ const ProductCard = (props: ProductCardProps) => {
     handleAddProduct,
     handleSubmitCatalogName,
     handleChange,
-    min_order_qty
+    min_order_qty,
   } = props;
 
   let wishproducts: any;
@@ -58,7 +58,7 @@ const ProductCard = (props: ProductCardProps) => {
   const [addToCartButtonDisabled, setAddToCartButtonDisabled] = useState(false);
   const [show, setshow] = useState(false);
   const [show1, setshow1] = useState(false);
-  const [qty, setQty] = useState<any>(1)
+  const [qty, setQty] = useState<any>(1);
   const { query }: any = useRouter();
   console.log('delete que', query);
   const newSlug = query?.category?.replace(/-/g, ' ');
@@ -140,15 +140,12 @@ const ProductCard = (props: ProductCardProps) => {
 
   return (
     <>
-
-      <div
-        key={key}
-        className="border p-3 h-100"
-      >
+      <div key={key} className="border p-3 h-100">
         <div className="d-flex justify-content-between icon-container-ps ">
           <div
-            className={`badge text-bg-primary fs-5 display_tag_badge ms-0 ${display_tag.length > 0 && display_tag[0] ? 'visible' : 'invisible'
-              }`}
+            className={`badge text-bg-primary fs-5 display_tag_badge ms-0 ${
+              display_tag.length > 0 && display_tag[0] ? 'visible' : 'invisible'
+            }`}
           >
             {display_tag.length > 0 && display_tag[0]}
           </div>
@@ -300,8 +297,9 @@ const ProductCard = (props: ProductCardProps) => {
                     <>
                       <button
                         type="button"
-                        className={` ${addToCartButtonDisabled === true ? 'disabled' : ''
-                          } btn btn-primary ml-3 cart_btn_gtag listing-cartbtn`}
+                        className={` ${
+                          addToCartButtonDisabled === true ? 'disabled' : ''
+                        } btn btn-primary ml-3 cart_btn_gtag listing-cartbtn blue-icon-color`}
                         onClick={handleShowModalCart}
                       >
                         <i
@@ -319,7 +317,7 @@ const ProductCard = (props: ProductCardProps) => {
                   ) : (
                     <button
                       className="btn btn-primary ml-3 cart_btn_gtag listing-cartbtn"
-                    // onClick={handleAddCart}
+                      // onClick={handleAddCart}
                     >
                       <Link href="/login" className="text-white ">
                         <i
@@ -332,42 +330,41 @@ const ProductCard = (props: ProductCardProps) => {
                   )}
                 </>
               )}
-            </div>
-            {CONSTANTS.DISPLAY_ADD_CATALOG_BUTTON_ON_PRODUCT_LISTING_CARD && (
-              <>
-                {isLoggedIn === 'true' && (
-                  <>
-                    {router.route !== '/catalog/[category]' ? (
-                      <button
-                        type="button"
-                        className={`btn btn-link catalog-btn-size pt-5 fs-5 products-name `}
-                        onClick={() =>
-                          handleShow(name)
-                        }
-                      >
-                        <span className="bold">
-                          {selectedMultiLangData?.add_to_catalog}
-                        </span>
-                      </button>
-                    ) : (
-                      ''
-                    )}
-                  </>
-                )}
-              </>
-            )}
 
-            {router.route === '/catalog/[category]' ? (
-              <button
-                type="button"
-                className={` btn btn-primary ml-3 cart_btn_gtag listing-cartbtn`}
-                onClick={handleDeleteCatalogProduct}
-              >
-                <i className="fa fa-trash-o" aria-hidden="true"></i>
-              </button>
-            ) : (
-              ''
-            )}
+              {CONSTANTS.DISPLAY_ADD_CATALOG_BUTTON_ON_PRODUCT_LISTING_CARD && (
+                <>
+                  {isLoggedIn === 'true' && (
+                    <>
+                      {router.route !== '/catalog/[category]' ? (
+                        <button
+                          type="button"
+                          className={`btn btn-link catalog-btn-size pt-5 fs-5 products-name `}
+                          onClick={() => handleShow(name)}
+                        >
+                          <span className="bold">
+                            {selectedMultiLangData?.add_to_catalog}
+                          </span>
+                        </button>
+                      ) : (
+                        ''
+                      )}
+                    </>
+                  )}
+                </>
+              )}
+
+              {router.route === '/catalog/[category]' ? (
+                <button
+                  type="button"
+                  className={` btn btn-primary ml-3 cart_btn_gtag listing-cartbtn blue-icon-color`}
+                  onClick={handleDeleteCatalogProduct}
+                >
+                  <i className="fa fa-trash-o" aria-hidden="true"></i>
+                </button>
+              ) : (
+                ''
+              )}
+            </div>
           </div>
         </div>
         <CatalogModal

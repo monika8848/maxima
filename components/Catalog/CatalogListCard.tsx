@@ -1,8 +1,8 @@
-import React from "react";
-import Link from "next/link";
-import { useDispatch, useSelector } from "react-redux";
-import { get_access_token } from "../../store/slices/auth/token-login-slice";
-import { CONSTANTS } from "../../services/config/app-config";
+import React from 'react';
+import Link from 'next/link';
+import { useDispatch, useSelector } from 'react-redux';
+import { get_access_token } from '../../store/slices/auth/token-login-slice';
+import { CONSTANTS } from '../../services/config/app-config';
 
 const CatalogListCard = ({
   catalogListItem,
@@ -11,21 +11,19 @@ const CatalogListCard = ({
   currency_state_from_redux,
   selectedMultiLangData,
 }: any) => {
-  console.log(name, "CatalogName");
+  console.log(name, 'CatalogName');
   const dispatch = useDispatch();
   const tokens = useSelector(get_access_token);
   const token = tokens.token;
 
-  console.log(catalogListItem, "catalogListItem");
+  console.log(catalogListItem, 'catalogListItem');
   return (
     <>
-      <div className="row mt-5 mb-0 d-flex justify-content-center mx-auto pb-0" >
-        <div className="col-lg-7 catalog-wrapper text-center  " >
-       
-          <h4 className="text-captilize pb-2 color-black fs-20" >
+      <div className="row mt-5 mb-0 d-flex justify-content-center mx-auto pb-0">
+        <div className="col-lg-7 catalog-wrapper text-center  ">
+          <h4 className="text-captilize pb-2 color-black fs-20">
             {selectedMultiLangData?.catalog_list}
           </h4>
-          
 
           {catalogListItem?.length > 0 &&
             catalogListItem?.map((catalog: any, i: any) => (
