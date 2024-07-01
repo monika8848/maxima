@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const CreateCatalog = ({
   handleChange,
@@ -7,16 +7,16 @@ const CreateCatalog = ({
 }: any) => {
   return (
     <>
-      <div className="d-flex justify-content-center ms-5" >
-        <div className="col-lg-7 text-center">
+      <div className="d-flex justify-content-start ">
+        <div className="col-lg-7 text-start">
           <div className="row mx-auto">
-            <div className=" text-center page_heading">
-            <h4 className="  my-0" >
-              {selectedMultiLangData?.create_catalog}
-            </h4>
+            <div className=" text-start page_heading p-0 ">
+              <h4 className=" p-0 m-0 ">
+                {selectedMultiLangData?.create_catalog}
+              </h4>
             </div>
 
-            <div className="col-lg-8 col-12 px-0  d-flex justify-content-center">
+            <div className="col-lg-8 col-12 p-0">
               <input
                 type="text"
                 className="form-control catalog-inputBox  px-3"

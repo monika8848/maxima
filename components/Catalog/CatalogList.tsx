@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import useCatalogHook from "../../hooks/CatalogHooks/catalogHook";
-import CatalogListCard from "./CatalogListCard";
-import CreateCatalog from "./CreateCatalog";
-import ListViewLoadingLayout from "../ProductListingComponents/products-data-view/ListViewLoadingLayout";
-import { useSelector } from "react-redux";
-import { SelectedFilterLangDataFromStore } from "../../store/slices/general_slices/selected-multilanguage-slice";
+import React, { useEffect, useState } from 'react';
+import useCatalogHook from '../../hooks/CatalogHooks/catalogHook';
+import CatalogListCard from './CatalogListCard';
+import CreateCatalog from './CreateCatalog';
+import ListViewLoadingLayout from '../ProductListingComponents/products-data-view/ListViewLoadingLayout';
+import { useSelector } from 'react-redux';
+import { SelectedFilterLangDataFromStore } from '../../store/slices/general_slices/selected-multilanguage-slice';
 
 const CatalogList = () => {
   const {
@@ -31,7 +31,7 @@ const CatalogList = () => {
 
   return (
     <div className="margin_from_nav">
-      {loading === "pending" ? (
+      {loading === 'pending' ? (
         <div className="row justify-content-center">
           {[...Array(6)].map(() => (
             <>
@@ -42,19 +42,27 @@ const CatalogList = () => {
           ))}
         </div>
       ) : (
-        <div className="container" >
-          <CreateCatalog
-            handleSubmitCatalogName={handleSubmitCatalogName}
-            handleChange={handleChange}
-            selectedMultiLangData={selectedMultiLangData}
-          />
-          <CatalogListCard
-            catalogListItem={catalogListItem}
-            handleDeleteCatalog={handleDeleteCatalog}
-            handleAddProduct={handleAddProduct}
-            currency_state_from_redux={currency_state_from_redux}
-            selectedMultiLangData={selectedMultiLangData}
-          />
+        <div className="container">
+          <div className="row ">
+            <div className="col-lg-12 ps-5">
+              <CreateCatalog
+                handleSubmitCatalogName={handleSubmitCatalogName}
+                handleChange={handleChange}
+                selectedMultiLangData={selectedMultiLangData}
+              />
+            </div>
+          </div>
+          <div className="row ">
+            <div className="col-lg-12 ps-5">
+              <CatalogListCard
+                catalogListItem={catalogListItem}
+                handleDeleteCatalog={handleDeleteCatalog}
+                handleAddProduct={handleAddProduct}
+                currency_state_from_redux={currency_state_from_redux}
+                selectedMultiLangData={selectedMultiLangData}
+              />
+            </div>
+          </div>
         </div>
       )}
     </div>
