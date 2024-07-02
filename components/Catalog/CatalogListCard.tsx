@@ -86,7 +86,7 @@ const CatalogListCard = ({
         </h4>
         <div className="ps-3">
           <div className="row cart_heading_bg my-auto products-name py-2 ">
-            <div className=" col-12 d-lg-block  products-name">
+            <div className=" col-12 d-lg-block  d-none products-name">
               <div className="row text-center products-name product-captilise">
                 {/* <div className="col-2">Sr No.</div> */}
                 <div className="col-lg-3 col-md-6">Catalog Name</div>
@@ -107,20 +107,27 @@ const CatalogListCard = ({
                     <div className="d-lg-block ">
                       <div className="row text-center cart_wrapper-detail">
                         {/* <div className="col-2">{i + 1}</div> */}
-                        <div className="col-lg-3 col-md-6 text-capitalize pt-2">
-                          {' '}
+                        <div className="d-lg-none d-block products-name col-lg-3 col-md-6 text-capitalize pt-2">
+                          Catalog Name : {catalog?.name}
+                        </div>
+                        <div className="d-lg-block d-none col-lg-3 col-md-6 text-capitalize pt-2">
                           {catalog?.name}
                         </div>
-                        <div className="col-lg-2 col-md-6 pt-2">
-                          {' '}
+                        <span className="d-lg-none d-block products-name col-lg-2 col-md-6 pt-2">
+                          Product Count :
+                          {catalog?.product_counts > 10
+                            ? catalog?.product_counts
+                            : `0${catalog?.product_counts}`}
+                        </span>
+                        <div className="d-lg-block d-none col-lg-2 col-md-6 pt-2">
                           {catalog?.product_counts > 10
                             ? catalog?.product_counts
                             : `0${catalog?.product_counts}`}
                         </div>
                         <div className="col-xl-7 col-lg-12 col-md-12 ">
-                          {' '}
                           <div className="row">
-                            <div className="col-xl-5 col-lg-5 col-md-12 col-sm-12 ">
+                            <div className="col-xxl-4 col-lg-5 col-md-12 col-sm-12 ">
+                              <div className="mt-2 d-lg-none d-block"> </div>
                               <Link
                                 href={`/${catalog.url}?page=1&currency=${currency_state_from_redux?.selected_currency_value}`}
                                 className="btn btn-catalogview btn-colors btn-font"
@@ -133,11 +140,12 @@ const CatalogListCard = ({
                               </Link>
                             </div>
                             {/* </div> */}
-                            {/* <td> */}{' '}
-                            <div className="col-xl-3 col-lg-3 col-md-12 col-sm-12">
+                            {/* <td> */}
+                            <div className="col-xxl-4 col-lg-3 col-md-12 col-sm-12">
+                              <div className="mt-2 d-lg-none d-block"></div>
                               <Link
                                 href={`/product-category/?page=1&currency=${currency_state_from_redux?.selected_currency_value}`}
-                                className="btn btn-catalogAddProduct text-dark btn-font "
+                                className="btn btn-catalogAddProduct  btn-font "
                               >
                                 {selectedMultiLangData?.add_product}
                                 <i
@@ -148,7 +156,8 @@ const CatalogListCard = ({
                             </div>
                             {/* </td> */}
                             {/* <td> */}
-                            <div className="col-xl-4 col-lg-4 col-md-12 col-sm-12 text-end">
+                            <div className="col-xxl-4 col-lg-4 col-md-12 col-sm-12 ">
+                              <div className="mt-2 d-lg-none d-block"> </div>
                               <button
                                 className="btn btn-catalogview btn-colors btn-font"
                                 onClick={() =>

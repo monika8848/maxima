@@ -28,8 +28,9 @@
 }
 
 .catalog-inputBox {
-  background-color: #fff1d6 !important;
-  border: 1px solid #ffebc2 !important;
+  // background-color: #fff1d6 !important;
+  // border: 1px solid #ffebc2 !important;
+  border: 1px solid #d9d9d9 !important;
   border-radius: 6px;
   // margin-left: 100px !important;
 }
@@ -99,7 +100,8 @@
 }
 
 .btn-catalogAddProduct {
-  background-color: #f2cd5c !important;
+  // background-color: #f2cd5c !important;
+  color: #0071dc !important;
   border: 1px solid $primary-color !important;
   border-radius: 5px !important;
 }
